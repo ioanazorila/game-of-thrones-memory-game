@@ -1,4 +1,4 @@
-///////////////////////////////////// Card Values /////////////////////////////////////
+///////////////////////////////////// Card values /////////////////////////////////////
 
 const cardValues = ["fa-anchor", "fa-bicycle", "fa-bolt", "fa-bomb", "fa-cube", "fa-diamond", "fa-leaf", "fa-paper-plane-o"];
 const allCardValues = cardValues.concat(cardValues);
@@ -48,11 +48,12 @@ function timer() {
 
 
 
-///////////////////////////////////// New Game /////////////////////////////////////
+///////////////////////////////////// New game /////////////////////////////////////
 
 let openCards = [];                     // list of visible cards
 let moves = 0;                          // number of moves
 let startTime;                          // start time for game
+let deltaTime;                          // time spent playing the current game, before the latest pause
 
 
 function newGame() {
@@ -66,6 +67,7 @@ function newGame() {
     });
 
     startTime = performance.now();      // update start time
+    deltaTime = 0;
 
     // start timer visible to user in Score Panel
     seconds = 0;
@@ -80,7 +82,7 @@ newGame();
 
 
 
-//////////////////////////////////// Restart Game ///////////////////////////////////
+////////////////////////////////// Restart the game /////////////////////////////////
 
 function restartGame() {
     // show deck, hide win message
@@ -115,13 +117,13 @@ function restartGame() {
 
 
 // Restart game when the restart button is clicked
-document.querySelector('div.restart').addEventListener('click', function () {
+document.querySelector('.fa-repeat').addEventListener('click', function () {
     restartGame();
 });
 
 
 
-/////////////////////////////////// Play the Game ///////////////////////////////////
+/////////////////////////////////// Play the game ///////////////////////////////////
 
 const deck = document.querySelector('ul.deck');         // element that includes all cards
 let clickAllowed = true;                                // determines if the user is allowed to reveal another card at a given time
@@ -135,6 +137,7 @@ deck.addEventListener('click', function (evt) {
     // - user clicks on an already visible card
     // - user clicks on the deck background (outside the cards)
     // - while waiting for non-matching cards to be hidden
+    // - while the game is paused
     if (currentCard.classList.contains('open') || currentCard.tagName != "LI" || !clickAllowed)
         return;
 
@@ -219,13 +222,33 @@ function removeStar() {
 
 
 
+///////////////////////////// Pause or resume the game /////////////////////////////
+
+
+// Pause game (pause timer, disable click on cards) when the pause button is clicked
+document.querySelector('.fa-pause').addEventListener('click', function () {
+    deltaTime += performance.now() - startTime;         // store the time spent playing before pausing the game
+    clearTimeout(t);
+    clickAllowed = false;
+});
+
+
+// Resume game (resume timer, enable click on cards) when the play button is clicked
+document.querySelector('.fa-play').addEventListener('click', function () {
+    timer();
+    startTime = performance.now();
+    clickAllowed = true;
+});
+
+
+
 /////////////////////////////////// Win the game ///////////////////////////////////
 
 // Display win message
 function winMessage() {
     clearTimeout(t);                                                // stop timer visible to user in Score Panel
     const endTime = performance.now();                              // calculate play time
-    const playTime = ((endTime - startTime)/1000).toFixed(2);
+    const playTime = ((endTime - startTime + deltaTime)/1000).toFixed(2);
     const stars = document.querySelectorAll('.fa-star').length;
 
     // update content of win message

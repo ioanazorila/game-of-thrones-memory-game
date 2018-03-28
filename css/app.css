@@ -103,15 +103,18 @@ h1 {
     display: inline-block;
 }
 
+.score-panel .timer {
+    margin: 0 0 0 50px;
+}
+
 .score-panel .restart {
     float: right;
     cursor: pointer;
 }
 
-.score-panel .timer {
-    margin: 0 0 0 50px;
+.score-panel .restart i {
+    margin: 0 5px 0 5px;
 }
-
 
 /*
  * Styles for the Win Message
