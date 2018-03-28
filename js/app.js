@@ -21,6 +21,33 @@ function shuffle(array) {
 
 
 
+/////////////////////////////////// Score panel timer ///////////////////////////////////
+
+// Based on code from https://jsfiddle.net/Daniel_Hug/pvk6p/
+const timeTag = document.getElementsByTagName('time')[0];
+let seconds, minutes, hours, t;
+
+function add() {
+    seconds++;
+    if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes >= 60) {
+            minutes = 0;
+            hours++;
+        }
+    }
+    
+    timeTag.textContent = (hours > 9 ? hours : "0" + hours) + ":" + (minutes > 9 ? minutes : "0" + minutes) + ":" + (seconds > 9 ? seconds : "0" + seconds);
+    timer();
+}
+
+function timer() {
+    t = setTimeout(add, 1000);
+}
+
+
+
 ///////////////////////////////////// New Game /////////////////////////////////////
 
 let openCards = [];                     // list of visible cards
@@ -39,6 +66,12 @@ function newGame() {
     });
 
     startTime = performance.now();      // update start time
+
+    // start timer visible to user in Score Panel
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+    timer();
 }
 
 
@@ -71,6 +104,10 @@ function restartGame() {
     for (star of stars) {
         star.classList.add('fa-star');
     }
+
+    // reset timer visible to user in Score panel
+    clearTimeout(t);
+    timeTag.textContent = "00:00:00";
 
     // shuffle and update card values
     newGame();
@@ -116,7 +153,7 @@ deck.addEventListener('click', function (evt) {
         const prevCard = openCards[noOfOpenCards-2];    // previously clicked card
         incrementMoves();
 
-        if (moves === 10 || moves === 16)
+        if (moves === 10 || moves === 20)
             removeStar();
 
         // cards match if their "fa-..." classes match (2nd class of each card)
@@ -186,7 +223,8 @@ function removeStar() {
 
 // Display win message
 function winMessage() {
-    const endTime = performance.now();
+    clearTimeout(t);                                                // stop timer visible to user in Score Panel
+    const endTime = performance.now();                              // calculate play time
     const playTime = ((endTime - startTime)/1000).toFixed(2);
     const stars = document.querySelectorAll('.fa-star').length;
 

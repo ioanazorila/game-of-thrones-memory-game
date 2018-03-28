@@ -108,6 +108,10 @@ h1 {
     cursor: pointer;
 }
 
+.score-panel .timer {
+    margin: 0 0 0 50px;
+}
+
 
 /*
  * Styles for the Win Message
