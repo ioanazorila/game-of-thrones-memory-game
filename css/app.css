@@ -131,3 +131,48 @@ h1 {
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
 }
+
+
+/* Responsive design */
+
+@media screen and (max-width: 499px) {
+    .score-panel {
+        max-width: 100%;
+    }
+
+    .score-panel .stars {
+        margin: 0 0 0 10px;
+    }
+
+    .score-panel .restart {
+        margin: 0 10px 0 0;
+    }
+
+    .score-panel .timer {
+        margin: 0 0 0 30px;
+    }
+
+    .deck {
+        width: 350px;
+        max-width: 100%;
+        min-height: 350px;
+    }
+
+    .deck .card {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 749px) {
+    .deck {
+        width: 500px;
+        max-width: 100%;
+        min-height: 500px;
+    }
+
+    .deck .card {
+        width: 100px;
+        height: 100px;
+    }
+}
