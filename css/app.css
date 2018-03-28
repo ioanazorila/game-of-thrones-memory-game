@@ -107,3 +107,23 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+
+/*
+ * Styles for the Win Message
+ */
+
+.hide {
+    display: none;
+}
+
+.win-message {
+    text-align: center;
+    color: white;
+    width: 660px;
+    min-height: 250px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+}
