@@ -18,7 +18,7 @@ body {
 
 body {
     background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    font: 20px 'Coda', cursive;
 }
 
 .container {
@@ -166,6 +166,10 @@ h3 {
 /* Responsive design */
 
 @media screen and (max-width: 499px) {
+    body {
+        font-size: 18px;
+    }
+
     .score-panel {
         width: 350px;
     }
