@@ -1,20 +1,14 @@
 # Memory Game Project
 
-## Table of Contents
+Project created during the Udacity/Google Front-End Web Developer Nanodegree Program
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+Based on a static version provided by Udacity
 
-## Instructions
-
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+### Added the following features:
+- interactive gameplay
+- restart game, pause game, resume game buttons
+- player "loses" a star after 10 moves, and then one more star after 20 moves
+- timer indicating time spent in the current game
+- win message that includes the player's stats
+- animations when cards are shown and when cards match
+- responsive design for phone/tablet
