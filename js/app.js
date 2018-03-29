@@ -53,6 +53,7 @@ function timer() {
 let openCards = [];                     // list of visible cards
 let moves = 0;                          // number of moves
 let startTime;                          // start time for game
+let endTime;                            // end time for game
 let deltaTime;                          // time spent playing the current game, before the latest pause
 
 
@@ -102,9 +103,9 @@ function restartGame() {
     }
 
     // un-hide the 3 stars
-    const stars = document.querySelectorAll('ul.stars li i');
+    const stars = document.querySelectorAll('.fa-star');
     for (star of stars) {
-        star.classList.add('fa-star');
+        star.classList.add('star-visible');
     }
 
     // reset timer visible to user in Score panel
@@ -165,14 +166,18 @@ deck.addEventListener('click', function (evt) {
             
             // at this point, if the 2 most recently clicked cards matched, and all 16 cards are visible, the user has won
             if (noOfOpenCards === 16) {
-                winMessage();
+                clearTimeout(t);                        // stop timer visible to user in Score Panel
+                endTime = performance.now();            // store end time for game
+                setTimeout(function(){ 
+                    winMessage();
+                 }, 2000);                              // show all cards for 2 seconds before displaying win message
             }
 
         } else {
             clickAllowed = false;                       // do not allow user to reveal other cards until the non-matching cards are hidden
-            setTimeout(function(){                      // hide non-matching cards after 0.5 seconds
+            setTimeout(function(){                      // hide non-matching cards after 1 second
                 hideCards(currentCard, prevCard);
-            }, 500);
+            }, 1000);
         }
     }
 });
@@ -217,7 +222,7 @@ function hideCards(currentCard, prevCard) {
 
 // Remove star
 function removeStar() {
-    document.querySelector('.fa-star').classList.remove('fa-star');
+    document.querySelector('.star-visible').classList.remove('star-visible');
 }
 
 
@@ -246,10 +251,8 @@ document.querySelector('.fa-play').addEventListener('click', function () {
 
 // Display win message
 function winMessage() {
-    clearTimeout(t);                                                // stop timer visible to user in Score Panel
-    const endTime = performance.now();                              // calculate play time
     const playTime = ((endTime - startTime + deltaTime)/1000).toFixed(2);
-    const stars = document.querySelectorAll('.fa-star').length;
+    const stars = document.querySelectorAll('.star-visible').length;
 
     // update content of win message
     document.querySelector('.play-time').innerHTML = playTime;

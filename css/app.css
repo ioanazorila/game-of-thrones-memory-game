@@ -33,6 +33,12 @@ h1 {
     font-weight: 300;
 }
 
+h2,
+h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
 /*
  * Styles for the deck of cards
  */
@@ -73,13 +79,28 @@ h1 {
 
 .deck .card.show {
     font-size: 33px;
+    animation-name: increase-font;
+    animation-duration: 0.4s;
 }
 
 .deck .card.match {
     cursor: default;
     background: #02ccba;
     font-size: 33px;
+    animation-name: matching;
+    animation-duration: 1s;
 }
+
+@keyframes increase-font {
+    from {font-size: 25px;}
+    to {font-size: 33px;}
+}
+
+@keyframes matching {
+    from {background-color: #02b3e4;}
+    to {background-color: #02ccba;}
+}
+
 
 /*
  * Styles for the Score Panel
@@ -87,7 +108,7 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    width: 400px;
     margin-bottom: 10px;
 }
 
@@ -96,6 +117,12 @@ h1 {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
+    color: white;
+    text-shadow: -1px 0 2px black, 0 1px 2px black, 1px 0 2px black, 0 -1px 2px black;
+}
+
+.score-panel .stars .star-visible {
+    color: black;
 }
 
 .score-panel .stars li {
@@ -140,7 +167,7 @@ h1 {
 
 @media screen and (max-width: 499px) {
     .score-panel {
-        max-width: 100%;
+        width: 350px;
     }
 
     .score-panel .stars {
