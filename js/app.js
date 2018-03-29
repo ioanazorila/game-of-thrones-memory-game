@@ -55,6 +55,7 @@ let moves = 0;                          // number of moves
 let startTime;                          // start time for game
 let endTime;                            // end time for game
 let deltaTime;                          // time spent playing the current game, before the latest pause
+let clickAllowed = true;                // determines if the user is allowed to reveal another card at a given time
 
 
 function newGame() {
@@ -112,6 +113,9 @@ function restartGame() {
     clearTimeout(t);
     timeTag.textContent = "00:00:00";
 
+    // if click was disabled after pausing the game, re-enable it when the user restarts the game (bug fix)
+    clickAllowed = true;
+
     // shuffle and update card values
     newGame();
 }
@@ -127,7 +131,6 @@ document.querySelector('.fa-repeat').addEventListener('click', function () {
 /////////////////////////////////// Play the game ///////////////////////////////////
 
 const deck = document.querySelector('ul.deck');         // element that includes all cards
-let clickAllowed = true;                                // determines if the user is allowed to reveal another card at a given time
 
 
 // Event listener for click on a card
