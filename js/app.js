@@ -5,6 +5,11 @@ const allCardValues = cardValues.concat(cardValues);
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
+/**
+* @description Shuffles elements of an array
+* @param {array} array
+* @returns {array} shuffled array
+*/
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -58,6 +63,9 @@ let deltaTime;                          // time spent playing the current game, 
 let clickAllowed = true;                // determines if the user is allowed to reveal another card at a given time
 
 
+/**
+* @description Starts a new game
+*/
 function newGame() {
     shuffle(allCardValues);             // shuffle card values
 
@@ -86,6 +94,9 @@ newGame();
 
 ////////////////////////////////// Restart the game /////////////////////////////////
 
+/**
+* @description Restarts the game
+*/
 function restartGame() {
     // show deck, hide win message
     document.querySelector('.deck').classList.remove('hide');
@@ -186,33 +197,49 @@ deck.addEventListener('click', function (evt) {
 });
 
 
-// Display the card's symbol
+/**
+* @description Displays the card's symbol
+* @param {element} currentCard - the most recently clicked card
+*/
 function showCard(currentCard) {
     currentCard.classList.add('open');
     currentCard.classList.add('show');
 }
 
 
-// Add to list of visible cards
+/**
+* @description Adds current card to a list of visible cards
+* @param {element} currentCard - the most recently clicked card
+*/
 function addToOpenCards(currentCard) {
     openCards.push(currentCard);
 }
 
 
-// Increment number of moves
+/**
+* @description Increments the number of moves
+*/
 function incrementMoves() {
     document.querySelector('.moves').innerHTML = ++moves;
 }
 
 
-// Lock the matching cards in open position
+/**
+* @description Locks the matching cards in open position
+* @param {element} currentCard - the most recently clicked card
+* @param {element} prevCard - the previously clicked card
+*/
 function lockCards(currentCard, prevCard) {
     currentCard.classList.add('match');
     prevCard.classList.add('match');
 }
 
 
-// If the most recently clicked card does not match the previously clicked card, hide the two cards
+/**
+* @description If the most recently clicked card does not match the previously clicked card, hides the two cards
+* @param {element} currentCard - the most recently clicked card
+* @param {element} prevCard - the previously clicked card
+*/
 function hideCards(currentCard, prevCard) {
     currentCard.classList.remove('open');
     currentCard.classList.remove('show');
@@ -223,7 +250,9 @@ function hideCards(currentCard, prevCard) {
 }
 
 
-// Remove star
+/**
+* @description Removes a star from the user's score
+*/
 function removeStar() {
     document.querySelector('.star-visible').classList.remove('star-visible');
 }
@@ -252,7 +281,9 @@ document.querySelector('.fa-play').addEventListener('click', function () {
 
 /////////////////////////////////// Win the game ///////////////////////////////////
 
-// Display win message
+/**
+* @description Displays the win message
+*/
 function winMessage() {
     const playTime = ((endTime - startTime + deltaTime)/1000).toFixed(2);
     const stars = document.querySelectorAll('.star-visible').length;
