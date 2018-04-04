@@ -22,10 +22,18 @@ body {
 }
 
 .container {
+    width: 1200px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    margin: 0 auto 0 auto;
+    /*flex-direction: column;*/
+}
+
+header {
+    width: 100%;
+    text-align: center;
 }
 
 h1 {
@@ -43,11 +51,11 @@ h3 {
  * Styles for the deck of cards
  */
 
-.deck {
-    width: 660px;
+ .deck {
+    width: 75%;
     min-height: 680px;
+    padding: 10px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
@@ -57,9 +65,28 @@ h3 {
     margin: 0 0 3em;
 }
 
+.left-images,
+.right-quotes {
+    min-height: 680px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.left-images {
+    width: 36%;
+    padding: 16px;
+}
+
+.right-quotes {
+    width: 64%;
+    padding: 16px 16px 16px 8px;
+}
+
 .deck .card {
-    height: 125px;
-    width: 125px;
+    height: 130px;
     background: #2e3d49;
     font-size: 0;
     color: #ffffff;
@@ -69,6 +96,14 @@ h3 {
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.left-images .card {
+    width: 130px;
+}
+
+.right-quotes .card {
+    width: 260px;
 }
 
 .deck .card.open {
@@ -108,35 +143,36 @@ h3 {
  */
 
 .score-panel {
-    text-align: left;
-    width: 400px;
-    margin-bottom: 10px;
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
-.score-panel .stars {
+.score-panel .hearts {
+    width: 100%;
     margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
-    color: white;
-    /* CSS "font border" from https://stackoverflow.com/questions/2570972/css-font-border */
-    text-shadow: -1px 0 2px black, 0 1px 2px black, 1px 0 2px black, 0 -1px 2px black;
+/*  color: white;
+    CSS "font border" from https://stackoverflow.com/questions/2570972/css-font-border 
+    text-shadow: -1px 0 2px black, 0 1px 2px black, 1px 0 2px black, 0 -1px 2px black; */
 }
 
-.score-panel .stars .star-visible {
-    color: black;
-}
-
-.score-panel .stars li {
+.score-panel .hearts li {
     list-style: none;
     display: inline-block;
 }
 
-.score-panel .timer {
-    margin: 0 0 0 50px;
+.score-panel .timer,
+.score-panel .moves-container {
+    width: 100%;
+    padding: 5% 0 5% 0;
 }
 
 .score-panel .restart {
+    width: 100%;
     float: right;
     cursor: pointer;
 }
@@ -165,7 +201,7 @@ h3 {
 }
 
 
-/* Responsive design */
+/* Responsive design 
 
 @media screen and (max-width: 499px) {
     body {
@@ -176,7 +212,7 @@ h3 {
         width: 350px;
     }
 
-    .score-panel .stars {
+    .score-panel .hearts {
         margin: 0 0 0 10px;
     }
 
@@ -211,3 +247,5 @@ h3 {
         height: 100px;
     }
 }
+
+*/

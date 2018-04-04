@@ -1,6 +1,6 @@
 ///////////////////////////////////// Card values /////////////////////////////////////
 
-const cardValues = ["fa-anchor", "fa-bicycle", "fa-bolt", "fa-bomb", "fa-cube", "fa-diamond", "fa-leaf", "fa-paper-plane-o"];
+const cardValues = ["fa-anchor", "fa-bicycle", "fa-bolt", "fa-bomb", "fa-cube", "fa-gem", "fa-leaf", "fa-paper-plane"];
 const allCardValues = cardValues.concat(cardValues);
 
 
@@ -114,10 +114,11 @@ function restartGame() {
         card.classList.remove('match');
     }
 
-    // un-hide the 3 stars
-    const stars = document.querySelectorAll('.fa-star');
-    for (star of stars) {
-        star.classList.add('star-visible');
+    // un-hide the 3 hearts
+    const hearts = document.querySelectorAll('.fa-heart');
+    for (heart of hearts) {
+        heart.classList.remove('far');
+        heart.classList.add('fas');
     }
 
     // reset timer visible to user in Score panel
@@ -133,7 +134,7 @@ function restartGame() {
 
 
 // Restart game when the restart button is clicked
-document.querySelector('.fa-repeat').addEventListener('click', function () {
+document.querySelector('.fa-sync-alt').addEventListener('click', function () {
     restartGame();
 });
 
@@ -141,7 +142,7 @@ document.querySelector('.fa-repeat').addEventListener('click', function () {
 
 /////////////////////////////////// Play the game ///////////////////////////////////
 
-const deck = document.querySelector('ul.deck');         // element that includes all cards
+const deck = document.querySelector('section.deck');         // element that includes all cards
 
 
 // Event listener for click on a card
@@ -172,7 +173,7 @@ deck.addEventListener('click', function (evt) {
         incrementMoves();
 
         if (moves === 10 || moves === 20)
-            removeStar();
+            removeHeart();
 
         // cards match if their "fa-..." classes match (2nd class of each card)
         if (currentCard.firstElementChild.classList.item(1) === prevCard.firstElementChild.classList.item(1)) {
@@ -253,8 +254,9 @@ function hideCards(currentCard, prevCard) {
 /**
 * @description Removes a star from the user's score
 */
-function removeStar() {
-    document.querySelector('.star-visible').classList.remove('star-visible');
+function removeHeart() {
+    document.querySelector('.fas.fa-heart').classList.add('far');
+    document.querySelector('.fas.fa-heart').classList.remove('fas');    
 }
 
 
@@ -286,12 +288,12 @@ document.querySelector('.fa-play').addEventListener('click', function () {
 */
 function winMessage() {
     const playTime = ((endTime - startTime + deltaTime)/1000).toFixed(2);
-    const stars = document.querySelectorAll('.star-visible').length;
+    const hearts = document.querySelectorAll('.fas.fa-heart').length;
 
     // update content of win message
     document.querySelector('.play-time').innerHTML = playTime;
     document.querySelector('.no-of-moves').innerHTML = moves;
-    document.querySelector('.no-of-stars').innerHTML = (stars === 1) ? `${stars} star` : `${stars} stars`;
+    document.querySelector('.no-of-hearts').innerHTML = (hearts === 1) ? `${hearts} star` : `${hearts} hearts`;
 
     // hide deck and display win message
     document.querySelector('.deck').classList.add('hide');
