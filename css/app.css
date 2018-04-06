@@ -256,66 +256,67 @@ h3 {
  * Card background images
  */
 
-.card.ned {
+.left-images .card.ned {
     background: url('../img/ned-150.jpg') center/cover;
 }
 
-.card.syrio {
+.left-images .card.syrio {
     background: url('../img/syrio-150.jpg') center/cover;
 }
 
-.card.jaime {
+.left-images .card.jaime {
     background: url('../img/jaime-150.jpg') center/cover;
 }
 
-.card.littlefinger {
+.left-images .card.littlefinger {
     background: url('../img/littlefinger-150.jpg') center/cover;
 }
 
-.card.ygritte {
+.left-images .card.ygritte {
     background: url('../img/ygritte-150.jpg') center/cover;
 }
 
-.card.cersei {
+.left-images .card.cersei {
     background: url('../img/cersei-150.jpg') center/cover;
 }
 
-.card.melisandre {
+.left-images .card.melisandre {
     background: url('../img/melisandre-150.jpg') center/cover;
 }
 
-.card.tywin {
+.left-images .card.tywin {
     background: url('../img/tywin-150.jpg') center/cover;
 }
 
-.card.hodor {
+.left-images .card.hodor {
     background: url('../img/hodor-150.jpg') center/cover;
 }
 
-.card.ramsay {
+.left-images .card.ramsay {
     background: url('../img/ramsay-150.jpg') center/cover;
 }
 
-.card.brienne {
+.left-images .card.brienne {
     background: url('../img/brienne-150.jpg') center/cover;
 }
 
-.card.sam {
+.left-images .card.sam {
     background: url('../img/sam-150.jpg') center/cover;
 }
 
-.card.tyrion {
+.left-images .card.tyrion {
     background: url('../img/tyrion-150.jpg') center/cover;
 }
 
-.card.arya {
+.left-images .card.arya {
     background: url('../img/arya-150.jpg') center/cover;
 }
 
-.card.varys {
+.left-images .card.varys {
     background: url('../img/varys-150.jpg') center/cover;
 }
 
-.card.daenerys {
+.left-images .card.daenerys {
     background: url('../img/daenerys-150.jpg') center/cover;
 }
+

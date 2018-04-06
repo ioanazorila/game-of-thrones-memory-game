@@ -92,7 +92,8 @@ function newGame() {
     const cardsImages = document.querySelectorAll('ul.left-images li.card');
     cardsImages.forEach(function(card, i) {
         card.classList.remove(card.classList.item(1));
-        card.classList.add(cardValuesImage[i][0]);
+        card.removeChild(card.firstElementChild);
+        card.insertAdjacentHTML('afterbegin', `<i class="${cardValuesImage[i][0]}"></i>`);
     });
 
     // select all card elements on right side (quotes) and update their text content
@@ -182,8 +183,8 @@ deck.addEventListener('click', function (evt) {
     // - while the game is paused
     if (currentCard.classList.contains('open') || currentCard.tagName != "LI" || !clickAllowed)
         return;
-
-    showCard(currentCard);                              // display the card's symbol
+    console.log
+    showCard(currentCard);                              // display the card's image or quote
     addToOpenCards(currentCard);                        // add to list of visible cards
 
     const noOfOpenCards = openCards.length;
@@ -201,8 +202,8 @@ deck.addEventListener('click', function (evt) {
         if (moves === 10 || moves === 20)
             removeHeart();
 
-        // cards match if their "fa-..." classes match (2nd class of each card)
-        if (currentCard.firstElementChild.classList.item(1) === prevCard.firstElementChild.classList.item(1)) {
+        // cards match if their "character" classes match (2nd class of each card)
+        if (currentCard.firstElementChild.classList.item(0) === prevCard.firstElementChild.classList.item(0)) {
             lockCards(currentCard, prevCard);
             
             // at this point, if the 2 most recently clicked cards matched, and all 16 cards are visible, the user has won
@@ -224,13 +225,15 @@ deck.addEventListener('click', function (evt) {
 });
 
 
+
 /**
-* @description Displays the card's symbol
+* @description Displays the card's image or quote
 * @param {element} currentCard - the most recently clicked card
 */
 function showCard(currentCard) {
     currentCard.classList.add('open');
-    currentCard.classList.add('show');
+    currentCard.classList.add(currentCard.parentElement.classList.contains('left-images') ? 
+                                currentCard.firstElementChild.classList.item(0) : 'show');
 }
 
 
@@ -269,16 +272,18 @@ function lockCards(currentCard, prevCard) {
 */
 function hideCards(currentCard, prevCard) {
     currentCard.classList.remove('open');
-    currentCard.classList.remove('show');
+    currentCard.classList.remove(currentCard.parentElement.classList.contains('left-images') ?
+                                currentCard.firstElementChild.classList.item(0) : 'show');
     prevCard.classList.remove('open');
-    prevCard.classList.remove('show');
+    prevCard.classList.remove(prevCard.parentElement.classList.contains('left-images') ?
+                                prevCard.firstElementChild.classList.item(0) : 'show');
     openCards.splice(-2);
     clickAllowed = true;                // allow user to click other cards
 }
 
 
 /**
-* @description Removes a star from the user's score
+* @description Removes a heart from the user's "life"
 */
 function removeHeart() {
     document.querySelector('.fas.fa-heart').classList.add('far');
