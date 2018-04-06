@@ -1,7 +1,23 @@
 ///////////////////////////////////// Card values /////////////////////////////////////
 
-const cardValues = ["fa-anchor", "fa-bicycle", "fa-bolt", "fa-bomb", "fa-cube", "fa-gem", "fa-leaf", "fa-paper-plane"];
-const allCardValues = cardValues.concat(cardValues);
+const cardValues = [
+    ['ned', 'Winter is coming.'],
+    ['syrio', 'Not today.'],
+    ['jaime', 'The things I do for love.'],
+    ['littlefinger', 'Chaos is a ladder.'],
+    ['ygritte', 'You know nothing, Jon Snow.'],
+    ['cersei', 'When you play the game of thrones, you win or you die.'],
+    ['melisandre', 'The night is dark and full of terrors.'],
+    ['tywin', 'A lion does not concern himself with the opinion of sheep.'],
+    ['hodor', 'Hodor!'],
+    ['ramsay', 'If you think this has a happy ending, you haven\'t been paying attention.'],
+    ['brienne', 'Nothing\'s more hateful than failing to protect the one you love.'],
+    ['sam', 'I read it in a book.'],
+    ['tyrion', 'All dwarfs are bastards in their father\'s eyes.'],
+    ['arya', 'Joffrey. Cersei. Walder Frey. Meryn Trant. Tywin Lannister. Ilyn Payne. The Mountain.'],
+    ['varys', 'I serve the realm, my lord. Someone must.'],
+    ['daenerys', 'Dracarys!']
+];
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -67,13 +83,23 @@ let clickAllowed = true;                // determines if the user is allowed to 
 * @description Starts a new game
 */
 function newGame() {
-    shuffle(allCardValues);             // shuffle card values
+    shuffle(cardValues);                            // shuffle card values
+    const cardValuesImage = cardValues.slice(0,8);  // image cards - select first 8 elements from shuffled array
+    let cardValuesQuote = cardValues.slice(0,8);    // quote cards - select same elements as for image cards and shuffle them
+    shuffle(cardValuesQuote);
 
-    // select all card elements and update the value of each card
-    const cards = document.querySelectorAll('li.card');
-    cards.forEach(function(card, i) {
+    // select all card elements on left side (images) and update their background images
+    const cardsImages = document.querySelectorAll('ul.left-images li.card');
+    cardsImages.forEach(function(card, i) {
+        card.classList.remove(card.classList.item(1));
+        card.classList.add(cardValuesImage[i][0]);
+    });
+
+    // select all card elements on right side (quotes) and update their text content
+    const cardsQuotes = document.querySelectorAll('ul.right-quotes li.card');
+    cardsQuotes.forEach(function(card, i) {
         card.removeChild(card.firstElementChild);
-        card.insertAdjacentHTML('afterbegin', `<i class="fa ${allCardValues[i]}"></i>`);
+        card.insertAdjacentHTML('afterbegin', `<i class="${cardValuesQuote[i][0]}">${cardValuesQuote[i][1]}</i>`);
     });
 
     startTime = performance.now();      // update start time
