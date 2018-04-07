@@ -114,7 +114,7 @@ function newGame() {
 }
 
 
-// Start a new game when the page is reloaded
+// Start a new game when the page is loaded
 newGame();
 
 

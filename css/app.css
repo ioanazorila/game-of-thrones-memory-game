@@ -17,8 +17,9 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #ffffff url('../img/xv_@2X_2.png'); /* Background pattern from Subtle Patterns */
     font: 20px 'Coda', cursive;
+    color: #ddc5a2;
 }
 
 .container {
@@ -37,8 +38,9 @@ header {
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-family: 'Metamorphous', sans-serif;
+    font-weight: 800;
+    color: #301b28;
 }
 
 h2,
@@ -53,9 +55,10 @@ h3 {
 
  .deck {
     width: 80%;
-    min-height: 680px;
+    min-height: 650px;
     padding: 10px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: black url('../img/dark_wood_@2X_2.png'); /* Background pattern from Subtle Patterns */
+    /*background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);*/
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
@@ -87,7 +90,7 @@ h3 {
 
 .deck .card {
     height: 150px;
-    background: #2e3d49;
+    background: #2e3d49 url('../img/xv_@2X.png'); /* Background pattern from Subtle Patterns */
     font-size: 0;
     color: #ffffff;
     border-radius: 8px;
@@ -95,6 +98,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 5px;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
@@ -113,29 +117,91 @@ h3 {
 }
 
 .deck .card.show {
-    font-size: 33px;
-    animation-name: increase-font;
-    animation-duration: 0.4s;
+    font-size: 25px;
 }
 
 .deck .card.match {
     cursor: default;
     background: #02ccba;
-    font-size: 33px;
+    font-size: 25px;
     animation-name: matching;
     animation-duration: 1s;
 }
 
 /* CSS animations from https://www.w3schools.com/css/css3_animations.asp */
-@keyframes increase-font {
-    from {font-size: 25px;}
-    to {font-size: 33px;}
-}
-
 @keyframes matching {
     from {background-color: #02b3e4;}
     to {background-color: #02ccba;}
 }
+
+/*
+ * Card background images
+ */
+
+ .left-images .card.ned {
+    background: url('../img/ned-150.jpg') center/cover;
+}
+
+.left-images .card.syrio {
+    background: url('../img/syrio-150.jpg') center/cover;
+}
+
+.left-images .card.jaime {
+    background: url('../img/jaime-150.jpg') center/cover;
+}
+
+.left-images .card.littlefinger {
+    background: url('../img/littlefinger-150.jpg') center/cover;
+}
+
+.left-images .card.ygritte {
+    background: url('../img/ygritte-150.jpg') center/cover;
+}
+
+.left-images .card.cersei {
+    background: url('../img/cersei-150.jpg') center/cover;
+}
+
+.left-images .card.melisandre {
+    background: url('../img/melisandre-150.jpg') center/cover;
+}
+
+.left-images .card.tywin {
+    background: url('../img/tywin-150.jpg') center/cover;
+}
+
+.left-images .card.hodor {
+    background: url('../img/hodor-150.jpg') center/cover;
+}
+
+.left-images .card.ramsay {
+    background: url('../img/ramsay-150.jpg') center/cover;
+}
+
+.left-images .card.brienne {
+    background: url('../img/brienne-150.jpg') center/cover;
+}
+
+.left-images .card.sam {
+    background: url('../img/sam-150.jpg') center/cover;
+}
+
+.left-images .card.tyrion {
+    background: url('../img/tyrion-150.jpg') center/cover;
+}
+
+.left-images .card.arya {
+    background: url('../img/arya-150.jpg') center/cover;
+}
+
+.left-images .card.varys {
+    background: url('../img/varys-150.jpg') center/cover;
+}
+
+.left-images .card.daenerys {
+    background: url('../img/daenerys-150.jpg') center/cover;
+}
+
 
 
 /*
@@ -143,10 +209,14 @@ h3 {
  */
 
 .score-panel {
-    width: 15%;
+    width: 14%;
+    min-height: 400px;
+    margin-right: 1%;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
+    background: black url('../img/dark_wood_@2X_2.png'); /* Background pattern from Subtle Patterns */
+    padding: 2%;
 }
 
 .score-panel .hearts {
@@ -155,9 +225,6 @@ h3 {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
-/*  color: white;
-    CSS "font border" from https://stackoverflow.com/questions/2570972/css-font-border 
-    text-shadow: -1px 0 2px black, 0 1px 2px black, 1px 0 2px black, 0 -1px 2px black; */
 }
 
 .score-panel .hearts li {
@@ -252,71 +319,4 @@ h3 {
 
 
 
-/*
- * Card background images
- */
-
-.left-images .card.ned {
-    background: url('../img/ned-150.jpg') center/cover;
-}
-
-.left-images .card.syrio {
-    background: url('../img/syrio-150.jpg') center/cover;
-}
-
-.left-images .card.jaime {
-    background: url('../img/jaime-150.jpg') center/cover;
-}
-
-.left-images .card.littlefinger {
-    background: url('../img/littlefinger-150.jpg') center/cover;
-}
-
-.left-images .card.ygritte {
-    background: url('../img/ygritte-150.jpg') center/cover;
-}
-
-.left-images .card.cersei {
-    background: url('../img/cersei-150.jpg') center/cover;
-}
-
-.left-images .card.melisandre {
-    background: url('../img/melisandre-150.jpg') center/cover;
-}
-
-.left-images .card.tywin {
-    background: url('../img/tywin-150.jpg') center/cover;
-}
-
-.left-images .card.hodor {
-    background: url('../img/hodor-150.jpg') center/cover;
-}
-
-.left-images .card.ramsay {
-    background: url('../img/ramsay-150.jpg') center/cover;
-}
-
-.left-images .card.brienne {
-    background: url('../img/brienne-150.jpg') center/cover;
-}
-
-.left-images .card.sam {
-    background: url('../img/sam-150.jpg') center/cover;
-}
-
-.left-images .card.tyrion {
-    background: url('../img/tyrion-150.jpg') center/cover;
-}
-
-.left-images .card.arya {
-    background: url('../img/arya-150.jpg') center/cover;
-}
-
-.left-images .card.varys {
-    background: url('../img/varys-150.jpg') center/cover;
-}
-
-.left-images .card.daenerys {
-    background: url('../img/daenerys-150.jpg') center/cover;
-}
 
