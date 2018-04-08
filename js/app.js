@@ -155,8 +155,38 @@ function restartGame() {
     // if click was disabled after pausing the game, re-enable it when the user restarts the game (bug fix)
     clickAllowed = true;
 
+    // reset original music
+    updateAudioSrc('restart');
+
     // shuffle and update card values
     newGame();
+}
+
+
+/**
+* @description Updates audio source
+* @param {string} result - the stage of the game ('restart', 'win' or 'lose')
+*/
+function updateAudioSrc(result) {
+    const audio = document.querySelector('.music');
+
+    switch (result) {
+        case 'restart':
+            audio.src = 'music/423499__soundflakes__epic-heroic-orchestral-dramatic.mp3';
+            audio.loop = true;
+            break;
+        case 'win':
+            audio.src = 'music/369252__funwithsound__victory-celebration-movie-score.wav';
+            audio.loop = false;
+            break;
+        case 'lose':
+            audio.src = 'music/180330__aeonemi__gothic-church-bells.mp3';
+            audio.loop = false;
+            break;
+    }
+
+    audio.load();
+    audio.play();
 }
 
 
@@ -344,20 +374,6 @@ function endMessage(result) {
     document.querySelector(`.${result}-message`).classList.remove('hide');
 
     updateAudioSrc(result);
-}
-
-
-/**
-* @description Updates audio source for end-of-game message
-* @param {string} result - the result of the game ('win' or 'lose')
-*/
-function updateAudioSrc(result) {
-    const audio = document.querySelector('.music');
-    audio.src = (result === 'lose') ? 'music/180330__aeonemi__gothic-church-bells.mp3' :
-                'music/369252__funwithsound__victory-celebration-movie-score.wav';
-    audio.loop = false;
-    audio.load();
-    audio.play();
 }
 
 
