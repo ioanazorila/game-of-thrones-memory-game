@@ -125,9 +125,11 @@ newGame();
 * @description Restarts the game
 */
 function restartGame() {
-    // show deck, hide win message
+    // show deck, hide win message, lose message or help menu
     document.querySelector('.deck').classList.remove('hide');
     document.querySelector('.win-message').classList.add('hide');
+    document.querySelector('.lose-message').classList.add('hide');
+    document.querySelector('.help-menu').classList.add('hide');
 
     openCards = [];                     // reset array that lists visible cards
     moves = -1;                         // reset the number of moves
@@ -401,4 +403,17 @@ document.querySelector('.music-controls').addEventListener('click', function (ev
             audio.volume = Math.max(vol - 0.2, 0);
             break;
     }
+});
+
+
+
+//////////////////////////////////// Help menu ////////////////////////////////////
+
+// Event listener for click on help button
+document.querySelector('.fa-question-circle').addEventListener('click', function (evt) {
+    // hide any other section that may be visible at the moment and display help menu
+    document.querySelector('.deck').classList.add('hide');
+    document.querySelector('.win-message').classList.add('hide');
+    document.querySelector('.lose-message').classList.add('hide');    
+    document.querySelector('.help-menu').classList.remove('hide');
 });

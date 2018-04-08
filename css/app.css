@@ -27,7 +27,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    /*align-items: center;*/
     margin: 0 auto 0 auto;
     /*flex-direction: column;*/
 }
@@ -203,7 +203,7 @@ h1 {
 
 .score-panel {
     width: 14%;
-    min-height: 400px;
+    max-height: 480px;
     margin-right: 1%;
     display: flex;
     flex-wrap: wrap;
@@ -230,25 +230,32 @@ h1 {
 }
 
 .score-panel .timer,
-.score-panel .moves-container {
+.score-panel .moves-container,
+.score-panel .help-menu {
     width: 100%;
     padding: 5% 0 5% 0;
 }
 
-.score-panel [class*='controls'] {
+.score-panel [class*='-controls'] {
     width: 100%;
     float: right;
     cursor: pointer;
     padding-bottom: 5%;
 }
 
-.score-panel [class*='controls'] i {
+.score-panel [class*='-controls'] i {
     margin: 0 5px 0 5px;
 }
 
 .score-panel .separator {
     width: 90%;
     border: 1px solid black;
+}
+
+.score-panel .help-button {
+    font-size: 25px;
+    width: 100%;
+    padding-top: 5%;
 }
 
 /*
@@ -281,10 +288,6 @@ h1 {
  * Styles for the Lose Message
  */
 
- .hide {
-    display: none;
-}
-
 .lose-message {
     width: 80%;
     min-height: 650px;
@@ -300,6 +303,52 @@ h1 {
 .lose-message .no-of-hearts li {
     list-style: none;
     display: inline-block;
+}
+
+
+/*
+ * Styles for the Help Menu
+ */
+
+.help-menu {
+    width: 80%;
+    background: url("../img/xv_@2X.png");
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    padding: 1em;
+    margin-bottom: 3em;
+    border: 5px outset darkgray;
+}
+
+.help-menu .instructions,
+.help-menu .game-printscreen-large,
+.help-menu h1 {
+    width: 100%;
+}
+
+.help-menu .game-printscreen-small {
+    max-width: 200px;
+}
+
+.help-menu [class*='game-printscreen-'] img {
+    max-width: 100%;
+}
+
+.help-menu .character-card {
+    width: 100%;
+    float: left;
+}
+
+.help-menu .character-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    border: 3px outset darkgray;
+    margin: 10px 20px 0 0;
+    float: left;
+}
+
+.help-menu .quote {
+    font-weight: 700;
 }
 
 
