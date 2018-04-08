@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>The Game of Thrones Matching Game</title>
     <meta name="description" content="">
-    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Metamorphous">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
@@ -23,18 +23,32 @@
         		<li><i class="fas fa-heart"></i></li>
         		<li><i class="fas fa-heart"></i></li>
         	</ul>
-
+            
             <div class="moves-container">
                 <span class="moves">0</span> Moves
             </div>
             
             <span class="timer"><time>00:00:00</time></span>
 
-            <div class="restart pause play">
+            <hr class="separator">
+            
+            <div class="game-controls">
+                <h3>Game controls</h3>
                 <i class="fas fa-sync-alt"></i>
                 <i class="fas fa-pause"></i>
                 <i class="fas fa-play"></i>
-        	</div>
+            </div>
+
+            <hr class="separator">
+
+            <div class="music-controls">
+                <h3>Music</h3>
+                <i class="fas fa-pause"></i>
+                <i class="fas fa-play"></i>
+                <i class="fas fa-volume-up"></i>
+                <i class="fas fa-volume-down"></i>                
+            </div>
+
         </section>
 
         <section class="deck">
@@ -93,9 +107,10 @@
         </section>
 
         <section class="win-message hide">
-            <h2>Congratulations!</h2>
-            <h3>You won in <span class="play-time">0</span> seconds,</h3>
-            <h3>with <span class="no-of-moves">0</span> moves and <span class="no-of-hearts">0 stars</span>.</h3>
+            <h1>You win!</h1>
+            <h3><span class="no-of-hearts"></span></h3>
+            <h3>in <span class="play-time">0</span> seconds</h3>
+            <h3>with <span class="no-of-moves">0</span> moves</h3>
         </section>
     </div>
 

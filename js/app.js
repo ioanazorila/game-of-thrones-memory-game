@@ -324,7 +324,8 @@ function winMessage() {
     // update content of win message
     document.querySelector('.play-time').innerHTML = playTime;
     document.querySelector('.no-of-moves').innerHTML = moves;
-    document.querySelector('.no-of-hearts').innerHTML = (hearts === 1) ? `${hearts} star` : `${hearts} hearts`;
+    //document.querySelector('.no-of-hearts').innerHTML = (hearts === 1) ? `${hearts} star` : `${hearts} hearts`;
+    document.querySelector('.no-of-hearts').innerHTML = document.querySelector('.hearts').innerHTML;
 
     // hide deck and display win message
     document.querySelector('.deck').classList.add('hide');

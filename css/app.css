@@ -18,8 +18,8 @@ body {
 
 body {
     background: #ffffff url('../img/xv_@2X_2.png'); /* Background pattern from Subtle Patterns */
-    font: 20px 'Coda', cursive;
-    color: #ddc5a2;
+    font: 18px 'Open Sans', sans-serif;
+    color: #301b28;
 }
 
 .container {
@@ -40,13 +40,6 @@ header {
 h1 {
     font-family: 'Metamorphous', sans-serif;
     font-weight: 800;
-    color: #301b28;
-}
-
-h2,
-h3 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
 }
 
 /*
@@ -58,14 +51,14 @@ h3 {
     min-height: 650px;
     padding: 10px;
     background: black url('../img/dark_wood_@2X_2.png'); /* Background pattern from Subtle Patterns */
-    /*background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);*/
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin: 0 0 3em;
+    border: 5px outset darkgray;
 }
 
 .left-images,
@@ -90,16 +83,16 @@ h3 {
 
 .deck .card {
     height: 150px;
-    background: #2e3d49 url('../img/xv_@2X.png'); /* Background pattern from Subtle Patterns */
+    background: #2e3d49 url('../img/arab_tile_@2X.png'); /* Background pattern from Subtle Patterns */
     font-size: 0;
-    color: #ffffff;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 5px;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    border: 3px outset darkgray;
+    text-align: center;
 }
 
 .left-images .card {
@@ -112,7 +105,7 @@ h3 {
 
 .deck .card.open {
     transform: rotateY(0);
-    background: #02b3e4;
+    background: url('../img/xv_@2X.png') center/cover no-repeat;
     cursor: default;
 }
 
@@ -120,18 +113,18 @@ h3 {
     font-size: 25px;
 }
 
-.deck .card.match {
+.right-quotes .card.match {
     cursor: default;
-    background: #02ccba;
+    background: url('../img/xv_@2X_2.png') center/cover no-repeat;
     font-size: 25px;
     animation-name: matching;
-    animation-duration: 1s;
+    animation-duration: 2s;
 }
 
 /* CSS animations from https://www.w3schools.com/css/css3_animations.asp */
 @keyframes matching {
-    from {background-color: #02b3e4;}
-    to {background-color: #02ccba;}
+    from {background: url('../img/xv_@2X.png') center/cover no-repeat;}
+    to {background: url('../img/xv_@2X_2.png') center/cover no-repeat;}
 }
 
 /*
@@ -216,7 +209,11 @@ h3 {
     flex-wrap: wrap;
     text-align: center;
     background: black url('../img/dark_wood_@2X_2.png'); /* Background pattern from Subtle Patterns */
-    padding: 2%;
+    padding: 2% 0 2% 0;
+    border: 5px outset darkgray;
+    border-radius: 5px;
+    color: #ddc5a2;
+    font-family: 'Metamorphous', sans-serif;
 }
 
 .score-panel .hearts {
@@ -238,14 +235,20 @@ h3 {
     padding: 5% 0 5% 0;
 }
 
-.score-panel .restart {
+.score-panel [class*='controls'] {
     width: 100%;
     float: right;
     cursor: pointer;
+    padding-bottom: 5%;
 }
 
-.score-panel .restart i {
+.score-panel [class*='controls'] i {
     margin: 0 5px 0 5px;
+}
+
+.score-panel .separator {
+    width: 90%;
+    border: 1px solid black;
 }
 
 /*
@@ -257,14 +260,20 @@ h3 {
 }
 
 .win-message {
+    width: 80%;
+    min-height: 450px;
     text-align: center;
-    color: white;
-    width: 660px;
-    min-height: 250px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    color: #301b28;
+    background: url('../img/8.png') bottom/cover;
     padding: 50px;
-    border-radius: 10px;
+    border-radius: 5px;
+    border: 5px outset antiquewhite;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.win-message .no-of-hearts li {
+    list-style: none;
+    display: inline-block;
 }
 
 
