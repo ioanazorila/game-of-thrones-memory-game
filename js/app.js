@@ -199,8 +199,20 @@ deck.addEventListener('click', function (evt) {
         const prevCard = openCards[noOfOpenCards-2];    // previously clicked card
         incrementMoves();
 
-        if (moves === 10 || moves === 20)
-            removeHeart();
+        switch (moves) {
+            case 8:
+                removeHeart();
+                break;
+            case 16:
+                removeHeart();
+                break;
+            case 24:
+                removeHeart();
+                clearTimeout(t);                        // stop timer visible to user in Score Panel
+                endTime = performance.now();            // store end time for game
+                endMessage("lose");
+                return;
+        }
 
         // cards match if their "character" classes match (2nd class of each card)
         if (currentCard.firstElementChild.classList.item(0) === prevCard.firstElementChild.classList.item(0)) {
@@ -211,7 +223,7 @@ deck.addEventListener('click', function (evt) {
                 clearTimeout(t);                        // stop timer visible to user in Score Panel
                 endTime = performance.now();            // store end time for game
                 setTimeout(function(){ 
-                    winMessage();
+                    endMessage("win");
                  }, 2000);                              // show all cards for 2 seconds before displaying win message
             }
 
@@ -312,22 +324,22 @@ document.querySelector('.fa-play').addEventListener('click', function () {
 
 
 
-/////////////////////////////////// Win the game ///////////////////////////////////
+/////////////////////////////// Win or lose the game ///////////////////////////////
 
 /**
-* @description Displays the win message
+* @description Displays the end-of-game message
+* @param {string} result - the result of the game ("win" or "lose")
 */
-function winMessage() {
+function endMessage(result) {
     const playTime = ((endTime - startTime + deltaTime)/1000).toFixed(2);
     const hearts = document.querySelectorAll('.fas.fa-heart').length;
 
-    // update content of win message
-    document.querySelector('.play-time').innerHTML = playTime;
-    document.querySelector('.no-of-moves').innerHTML = moves;
-    //document.querySelector('.no-of-hearts').innerHTML = (hearts === 1) ? `${hearts} star` : `${hearts} hearts`;
-    document.querySelector('.no-of-hearts').innerHTML = document.querySelector('.hearts').innerHTML;
+    // update content of message
+    document.querySelector(`.${result}-message .play-time`).innerHTML = playTime;
+    document.querySelector(`.${result}-message .no-of-moves`).innerHTML = moves;
+    document.querySelector(`.${result}-message .no-of-hearts`).innerHTML = document.querySelector('.hearts').innerHTML;
 
-    // hide deck and display win message
+    // hide deck and display message
     document.querySelector('.deck').classList.add('hide');
-    document.querySelector('.win-message').classList.remove('hide');
+    document.querySelector(`.${result}-message`).classList.remove('hide');
 }

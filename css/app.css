@@ -277,6 +277,32 @@ h1 {
 }
 
 
+/*
+ * Styles for the Lose Message
+ */
+
+ .hide {
+    display: none;
+}
+
+.lose-message {
+    width: 80%;
+    min-height: 650px;
+    text-align: center;
+    color: #301b28;
+    background: url('../img/21.png') bottom/cover;
+    padding: 50px;
+    border-radius: 5px;
+    border: 5px outset antiquewhite;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.lose-message .no-of-hearts li {
+    list-style: none;
+    display: inline-block;
+}
+
+
 /* Responsive design 
 
 @media screen and (max-width: 499px) {
