@@ -181,7 +181,7 @@ deck.addEventListener('click', function (evt) {
     // - user clicks on the deck background (outside the cards)
     // - while waiting for non-matching cards to be hidden
     // - while the game is paused
-    if (currentCard.classList.contains('open') || currentCard.tagName != "LI" || !clickAllowed)
+    if (currentCard.classList.contains('open') || currentCard.tagName != 'LI' || !clickAllowed)
         return;
     console.log
     showCard(currentCard);                              // display the card's image or quote
@@ -206,11 +206,11 @@ deck.addEventListener('click', function (evt) {
             case 16:
                 removeHeart();
                 break;
-            case 24:
+            case 5:
                 removeHeart();
                 clearTimeout(t);                        // stop timer visible to user in Score Panel
                 endTime = performance.now();            // store end time for game
-                endMessage("lose");
+                endMessage('lose');
                 return;
         }
 
@@ -223,7 +223,7 @@ deck.addEventListener('click', function (evt) {
                 clearTimeout(t);                        // stop timer visible to user in Score Panel
                 endTime = performance.now();            // store end time for game
                 setTimeout(function(){ 
-                    endMessage("win");
+                    endMessage('win');
                  }, 2000);                              // show all cards for 2 seconds before displaying win message
             }
 
@@ -342,4 +342,45 @@ function endMessage(result) {
     // hide deck and display message
     document.querySelector('.deck').classList.add('hide');
     document.querySelector(`.${result}-message`).classList.remove('hide');
+
+    if (result === 'lose')
+        loseMusic();
 }
+
+
+/**
+* @description Changes audio src to a bells tolling sound effect
+*/
+function loseMusic() {
+    const audio = document.querySelector('.music');
+    audio.src = 'music/180330__aeonemi__gothic-church-bells.mp3';
+    audio.load();
+    audio.play();
+}
+
+
+
+////////////////////////////////// Music controls //////////////////////////////////
+
+// Event listener for click on music controls
+document.querySelector('.music-controls').addEventListener('click', function (evt) {
+    const button = evt.target.classList.item(1);        // button that was clicked
+    const audio = document.querySelector('.music');     // audio element on webpage
+    const vol = audio.volume;                             // current music volume
+
+    switch (button) {
+        case 'fa-pause':
+            audio.pause();
+            break;
+        case 'fa-play':
+            if (vol < 0.1) audio.volume = 0.1;
+            audio.play();
+            break;
+        case 'fa-volume-up':
+            audio.volume = Math.min(vol + 0.2, 1);
+            break;
+        case 'fa-volume-down':
+            audio.volume = Math.max(vol - 0.2, 0);
+            break;
+    }
+});

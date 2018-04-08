@@ -103,13 +103,13 @@ h1 {
     width: 395px;
 }
 
-.deck .card.open {
+.right-quotes .card.open {
     transform: rotateY(0);
     background: url('../img/xv_@2X.png') center/cover no-repeat;
     cursor: default;
 }
 
-.deck .card.show {
+.right-quotes .card.show {
     font-size: 25px;
 }
 
