@@ -206,7 +206,7 @@ deck.addEventListener('click', function (evt) {
             case 16:
                 removeHeart();
                 break;
-            case 5:
+            case 24:
                 removeHeart();
                 clearTimeout(t);                        // stop timer visible to user in Score Panel
                 endTime = performance.now();            // store end time for game
@@ -328,7 +328,7 @@ document.querySelector('.fa-play').addEventListener('click', function () {
 
 /**
 * @description Displays the end-of-game message
-* @param {string} result - the result of the game ("win" or "lose")
+* @param {string} result - the result of the game ('win' or 'lose')
 */
 function endMessage(result) {
     const playTime = ((endTime - startTime + deltaTime)/1000).toFixed(2);
@@ -343,17 +343,19 @@ function endMessage(result) {
     document.querySelector('.deck').classList.add('hide');
     document.querySelector(`.${result}-message`).classList.remove('hide');
 
-    if (result === 'lose')
-        loseMusic();
+    updateAudioSrc(result);
 }
 
 
 /**
-* @description Changes audio src to a bells tolling sound effect
+* @description Updates audio source for end-of-game message
+* @param {string} result - the result of the game ('win' or 'lose')
 */
-function loseMusic() {
+function updateAudioSrc(result) {
     const audio = document.querySelector('.music');
-    audio.src = 'music/180330__aeonemi__gothic-church-bells.mp3';
+    audio.src = (result === 'lose') ? 'music/180330__aeonemi__gothic-church-bells.mp3' :
+                'music/369252__funwithsound__victory-celebration-movie-score.wav';
+    audio.loop = false;
     audio.load();
     audio.play();
 }
