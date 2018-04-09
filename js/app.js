@@ -236,13 +236,13 @@ deck.addEventListener('click', function (evt) {
         incrementMoves();
 
         switch (moves) {
-            case 8:
+            case 10:
                 removeHeart();
                 break;
-            case 14:
+            case 16:
                 removeHeart();
                 break;
-            case 20:
+            case 22:
                 removeHeart();
                 clearTimeout(t);                        // stop timer visible to user in Score Panel
                 endTime = performance.now();            // store end time for game
