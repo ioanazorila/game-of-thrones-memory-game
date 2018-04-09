@@ -18,7 +18,7 @@ body {
 
 body {
     background: #ffffff url('../img/xv_2_@2X.png'); /* Background pattern from Subtle Patterns */
-    font: 580 18px 'Open Sans', sans-serif;
+    font: 600 18px 'Open Sans', sans-serif;
     color: #241e1b;
 }
 
@@ -37,7 +37,6 @@ header {
 
 h1 {
     font-family: 'Metamorphous', sans-serif;
-    font-weight: 800;
 }
 
 
@@ -208,6 +207,7 @@ h1 {
 
 /*
  * Styles for the Win Message and Lose Message
+ * Background images from https://holypsd.deviantart.com/art/Game-of-thrones-texture-pack-316846378
  */
 
 .win-message,
@@ -289,52 +289,28 @@ h1 {
 }
 
 
-/* Responsive design 
+/*
+ * Styles for the Score Panel
+ */
 
 @media screen and (max-width: 499px) {
-    body {
-        font-size: 18px;
-    }
 
-    .score-panel {
-        width: 350px;
-    }
-
-    .score-panel .hearts {
-        margin: 0 0 0 10px;
-    }
-
-    .score-panel .restart {
-        margin: 0 10px 0 0;
-    }
-
-    .score-panel .timer {
-        margin: 0 0 0 30px;
-    }
-
-    .deck {
-        width: 350px;
-        max-width: 100%;
-        min-height: 350px;
-    }
-
-    .deck .card {
-        width: 60px;
-        height: 60px;
-    }
 }
 
-@media screen and (min-width: 500px) and (max-width: 749px) {
-    .deck {
-        width: 500px;
-        min-height: 500px;
-    }
+@media screen and (min-width: 500px) and (max-width: 699px) {
 
-    .deck .card {
-        width: 100px;
-        height: 100px;
-    }
 }
 
-*/
+@media screen and (min-width: 700px) and (max-width: 949px) {
 
+}
+
+@media screen and (min-width: 950px) and (max-width: 1199px) {
+
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1500px) {
+    .container {
+        width: 1200px;
+    }
+}
