@@ -217,7 +217,7 @@ h1 {
     color: #241e1b;
     padding: 50px;
     border-radius: 5px;
-    border: 5px outset antiquewhite;
+    border: 5px outset darkgray;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
