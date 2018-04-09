@@ -292,14 +292,52 @@ h1 {
 
 
 /*
- * Styles for the Score Panel
+ * Responsive design
  */
 
 @media screen and (max-width: 499px) {
-
+    body {
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 1.2em;
+    }
+    .container {
+        width: 100%;
+    }
+    .score-panel {
+        font-size: 0.8em;
+    }
+    .score-panel [class*='-controls'] i {
+        margin: 0 3px 0 3px;
+    }
+    .left-images,
+    .right-quotes {
+        min-height: 880px;
+        padding: 7px;
+    }
+    .deck .card {
+        height: 100px;
+    }
+    .left-images .card {
+        width: 100px;
+    }
+    .right-quotes .card {
+        width: 250px;
+    }
+    .right-quotes .card.show {
+        font-size: 16px;
+    }
+    .help-menu .game-printscreen-small {
+        max-width: 150px;
+    }
+    .help-menu .character-photo {
+        width: 100px;
+        height: 100px;
+    }
 }
 
-@media screen and (min-width: 500px) and (max-width: 949px) {
+@media screen and (max-width: 949px) {
     .score-panel,
     .deck,
     .win-message,
@@ -308,6 +346,7 @@ h1 {
         width: 100%;    /* Score panel at the top */
     }
     .score-panel {
+        height: 120px;
         align-items: center;
         padding: 0;
         margin: 0 0 1% 0;
@@ -325,11 +364,14 @@ h1 {
     }
     .score-panel .separator {
         width: 1px;
-        height: 150px;
+        height: 90px;
     }
 }
 
 @media screen and (min-width: 500px) and (max-width: 699px) {
+    body {
+        font-size: 15px;
+    }
     h1 {
         font-size: 1.5em;
     }
@@ -357,14 +399,17 @@ h1 {
         font-size: 12px;
     }
     .help-menu .character-photo {
-        width: 68px;
-        height: 68px;
+        width: 80px;
+        height: 80px;
     }
 }
 
 @media screen and (min-width: 700px) and (max-width: 949px) {
     .container {
         width: 750px;
+    }
+    .score-panel {
+        height: 140px;
     }
     .left-images,
     .right-quotes {
