@@ -1,5 +1,6 @@
 ///////////////////////////////////// Card values /////////////////////////////////////
 
+// "Game of Thrones" quotes from the books and TV show, quoted from memory
 const cardValues = [
     ['ned', 'Winter is coming.'],
     ['syrio', 'Not today.'],
@@ -85,7 +86,7 @@ let clickAllowed = true;                // determines if the user is allowed to 
 function newGame() {
     shuffle(cardValues);                            // shuffle card values
     const cardValuesImage = cardValues.slice(0,8);  // image cards - select first 8 elements from shuffled array
-    let cardValuesQuote = cardValues.slice(0,8);    // quote cards - select same elements as for image cards and shuffle them
+    let cardValuesQuote = cardValues.slice(0,8);    // quote cards - select same 8 elements and shuffle them
     shuffle(cardValuesQuote);
 
     // select all card elements on left side (images) and update their background images
@@ -154,7 +155,7 @@ function restartGame() {
     clearTimeout(t);
     timeTag.textContent = "00:00:00";
 
-    // if click was disabled after pausing the game, re-enable it when the user restarts the game (bug fix)
+    // if click was disabled after pausing the game, re-enable it when the user restarts the game
     clickAllowed = true;
 
     // reset original music
@@ -173,15 +174,18 @@ function updateAudioSrc(result) {
     const audio = document.querySelector('.music');
 
     switch (result) {
-        case 'restart':
+        case 'restart': 
+            // source: https://freesound.org/people/SoundFlakes/sounds/423499/
             audio.src = 'music/423499__soundflakes__epic-heroic-orchestral-dramatic.mp3';
             audio.loop = true;
             break;
         case 'win':
+            // source: https://freesound.org/people/FunWithSound/sounds/369252/
             audio.src = 'music/369252__funwithsound__victory-celebration-movie-score.wav';
             audio.loop = false;
             break;
         case 'lose':
+            // source: https://freesound.org/people/Aeonemi/sounds/180330/
             audio.src = 'music/180330__aeonemi__gothic-church-bells.mp3';
             audio.loop = false;
             break;
@@ -201,7 +205,7 @@ document.querySelector('.fa-sync-alt').addEventListener('click', function () {
 
 /////////////////////////////////// Play the game ///////////////////////////////////
 
-const deck = document.querySelector('section.deck');         // element that includes all cards
+const deck = document.querySelector('section.deck');    // element that includes all cards
 
 
 // Event listener for click on a card
@@ -215,7 +219,7 @@ deck.addEventListener('click', function (evt) {
     // - while the game is paused
     if (currentCard.classList.contains('open') || currentCard.tagName != 'LI' || !clickAllowed)
         return;
-    console.log
+
     showCard(currentCard);                              // display the card's image or quote
     addToOpenCards(currentCard);                        // add to list of visible cards
 
@@ -235,10 +239,10 @@ deck.addEventListener('click', function (evt) {
             case 8:
                 removeHeart();
                 break;
-            case 16:
+            case 14:
                 removeHeart();
                 break;
-            case 24:
+            case 20:
                 removeHeart();
                 clearTimeout(t);                        // stop timer visible to user in Score Panel
                 endTime = performance.now();            // store end time for game
@@ -267,7 +271,6 @@ deck.addEventListener('click', function (evt) {
         }
     }
 });
-
 
 
 /**
@@ -331,13 +334,12 @@ function hideCards(currentCard, prevCard) {
 */
 function removeHeart() {
     document.querySelector('.fas.fa-heart').classList.add('far');
-    document.querySelector('.fas.fa-heart').classList.remove('fas');    
+    document.querySelector('.fas.fa-heart').classList.remove('fas');
 }
 
 
 
 ///////////////////////////// Pause or resume the game /////////////////////////////
-
 
 // Pause game (pause timer, disable click on cards) when the pause button is clicked
 document.querySelector('.fa-pause').addEventListener('click', function () {
@@ -375,6 +377,7 @@ function endMessage(result) {
     document.querySelector('.deck').classList.add('hide');
     document.querySelector(`.${result}-message`).classList.remove('hide');
 
+    // sound effects depending on the result of the game
     updateAudioSrc(result);
 }
 
@@ -411,7 +414,7 @@ document.querySelector('.music-controls').addEventListener('click', function (ev
 
 // Event listener for click on help button
 document.querySelector('.fa-question-circle').addEventListener('click', function (evt) {
-    // hide any other section that may be visible at the moment and display help menu
+    // hide any other sections that may be visible at the moment and display help menu
     document.querySelector('.deck').classList.add('hide');
     document.querySelector('.win-message').classList.add('hide');
     document.querySelector('.lose-message').classList.add('hide');    

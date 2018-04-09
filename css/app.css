@@ -17,9 +17,9 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/xv_@2X_2.png'); /* Background pattern from Subtle Patterns */
-    font: 18px 'Open Sans', sans-serif;
-    color: #301b28;
+    background: #ffffff url('../img/xv_2_@2X.png'); /* Background pattern from Subtle Patterns */
+    font: 580 18px 'Open Sans', sans-serif;
+    color: #241e1b;
 }
 
 .container {
@@ -27,9 +27,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /*align-items: center;*/
     margin: 0 auto 0 auto;
-    /*flex-direction: column;*/
 }
 
 header {
@@ -42,23 +40,21 @@ h1 {
     font-weight: 800;
 }
 
+
 /*
  * Styles for the deck of cards
  */
 
  .deck {
     width: 80%;
-    min-height: 650px;
-    padding: 10px;
-    background: black url('../img/dark_wood_2_@2X.png'); /* Background pattern from Subtle Patterns */
-    border-radius: 5px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin: 0 0 3em;
+    background: #241e1b url('../img/dark_wood_2_@2X.png'); /* Background pattern from Subtle Patterns */
     border: 5px outset darkgray;
+    border-radius: 5px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
 .left-images,
@@ -68,31 +64,30 @@ h1 {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin: 0 0 3em;
+    padding: 20px;
 }
 
 .left-images {
     width: 30%;
-    padding: 20px;
 }
 
 .right-quotes {
     width: 70%;
-    padding: 20px 20px 20px 0;
+    padding-left: 0;
 }
 
 .deck .card {
     height: 150px;
-    background: #2e3d49 url('../img/arab_tile_@2X.png'); /* Background pattern from Subtle Patterns */
-    font-size: 0;
-    border-radius: 5px;
     cursor: pointer;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 5px;
-    border: 3px outset darkgray;
     text-align: center;
+    align-items: center;
+    font-size: 0;
+    background: darkgray url('../img/arab_tile_@2X.png'); /* Background pattern from Subtle Patterns */
+    padding: 5px;
+    border-radius: 5px;
+    border: 3px outset darkgray;
 }
 
 .left-images .card {
@@ -105,7 +100,7 @@ h1 {
 
 .right-quotes .card.open {
     transform: rotateY(0);
-    background: url('../img/xv_@2X.png') center/cover no-repeat;
+    background: lightgray url('../img/xv_@2X.png'); /* Background pattern from Subtle Patterns */
     cursor: default;
 }
 
@@ -113,88 +108,41 @@ h1 {
     font-size: 25px;
 }
 
-.right-quotes .card.match {
+.deck .card.match {
     cursor: default;
-    background: url('../img/xv_@2X_2.png') center/cover no-repeat;
-    font-size: 25px;
+}
+
+.right-quotes .card.match {
+    background: #ddc5a2 url('../img/xv_2_@2X.png'); /* Background pattern from Subtle Patterns */
     animation-name: matching;
     animation-duration: 2s;
 }
 
 /* CSS animations from https://www.w3schools.com/css/css3_animations.asp */
 @keyframes matching {
-    from {background: url('../img/xv_@2X.png') center/cover no-repeat;}
-    to {background: url('../img/xv_@2X_2.png') center/cover no-repeat;}
+    from {background: lightgray url('../img/xv_@2X.png');}
+    to {background: #ddc5a2 url('../img/xv_2_@2X.png');}
 }
 
 /*
- * Card background images
+ * Card background images downloaded from http://gameofthrones.wikia.com and then resized
  */
-
- .left-images .card.ned {
-    background: url('../img/ned-150.jpg') center/cover;
-}
-
-.left-images .card.syrio {
-    background: url('../img/syrio-150.jpg') center/cover;
-}
-
-.left-images .card.jaime {
-    background: url('../img/jaime-150.jpg') center/cover;
-}
-
-.left-images .card.littlefinger {
-    background: url('../img/littlefinger-150.jpg') center/cover;
-}
-
-.left-images .card.ygritte {
-    background: url('../img/ygritte-150.jpg') center/cover;
-}
-
-.left-images .card.cersei {
-    background: url('../img/cersei-150.jpg') center/cover;
-}
-
-.left-images .card.melisandre {
-    background: url('../img/melisandre-150.jpg') center/cover;
-}
-
-.left-images .card.tywin {
-    background: url('../img/tywin-150.jpg') center/cover;
-}
-
-.left-images .card.hodor {
-    background: url('../img/hodor-150.jpg') center/cover;
-}
-
-.left-images .card.ramsay {
-    background: url('../img/ramsay-150.jpg') center/cover;
-}
-
-.left-images .card.brienne {
-    background: url('../img/brienne-150.jpg') center/cover;
-}
-
-.left-images .card.sam {
-    background: url('../img/sam-150.jpg') center/cover;
-}
-
-.left-images .card.tyrion {
-    background: url('../img/tyrion-150.jpg') center/cover;
-}
-
-.left-images .card.arya {
-    background: url('../img/arya-150.jpg') center/cover;
-}
-
-.left-images .card.varys {
-    background: url('../img/varys-150.jpg') center/cover;
-}
-
-.left-images .card.daenerys {
-    background: url('../img/daenerys-150.jpg') center/cover;
-}
-
+.left-images .card.ned {background: url('../img/ned-150.jpg') center/cover;}
+.left-images .card.syrio {background: url('../img/syrio-150.jpg') center/cover;}
+.left-images .card.jaime {background: url('../img/jaime-150.jpg') center/cover;}
+.left-images .card.littlefinger {background: url('../img/littlefinger-150.jpg') center/cover;}
+.left-images .card.ygritte {background: url('../img/ygritte-150.jpg') center/cover;}
+.left-images .card.cersei {background: url('../img/cersei-150.jpg') center/cover;}
+.left-images .card.melisandre {background: url('../img/melisandre-150.jpg') center/cover;}
+.left-images .card.tywin {background: url('../img/tywin-150.jpg') center/cover;}
+.left-images .card.hodor {background: url('../img/hodor-150.jpg') center/cover;}
+.left-images .card.ramsay {background: url('../img/ramsay-150.jpg') center/cover;}
+.left-images .card.brienne {background: url('../img/brienne-150.jpg') center/cover;}
+.left-images .card.sam {background: url('../img/sam-150.jpg') center/cover;}
+.left-images .card.tyrion {background: url('../img/tyrion-150.jpg') center/cover;}
+.left-images .card.arya {background: url('../img/arya-150.jpg') center/cover;}
+.left-images .card.varys {background: url('../img/varys-150.jpg') center/cover;}
+.left-images .card.daenerys {background: url('../img/daenerys-150.jpg') center/cover;}
 
 
 /*
@@ -203,25 +151,24 @@ h1 {
 
 .score-panel {
     width: 14%;
-    max-height: 480px;
-    margin-right: 1%;
+    max-height: 500px;
+    font-family: 'Metamorphous', sans-serif;
+    color: #ddc5a2;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    background: black url('../img/dark_wood_2_@2X.png'); /* Background pattern from Subtle Patterns */
     padding: 2% 0 2% 0;
+    margin-right: 1%;
+    background: #241e1b url('../img/dark_wood_2_@2X.png'); /* Background pattern from Subtle Patterns */
     border: 5px outset darkgray;
     border-radius: 5px;
-    color: #ddc5a2;
-    font-family: 'Metamorphous', sans-serif;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
 .score-panel .hearts {
     width: 100%;
-    margin: 0;
     padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
+    margin-bottom: 5px;
 }
 
 .score-panel .hearts li {
@@ -231,7 +178,8 @@ h1 {
 
 .score-panel .timer,
 .score-panel .moves-container,
-.score-panel .help-menu {
+.score-panel .help-menu,
+.score-panel .help-button {
     width: 100%;
     padding: 5% 0 5% 0;
 }
@@ -239,12 +187,17 @@ h1 {
 .score-panel [class*='-controls'] {
     width: 100%;
     float: right;
-    cursor: pointer;
     padding-bottom: 5%;
 }
 
 .score-panel [class*='-controls'] i {
-    margin: 0 5px 0 5px;
+    cursor: pointer;
+    margin: 0 7px 0 7px;
+}
+
+.score-panel .help-button {
+    cursor: pointer;
+    font-size: 25px;
 }
 
 .score-panel .separator {
@@ -252,57 +205,40 @@ h1 {
     border: 1px solid black;
 }
 
-.score-panel .help-button {
-    font-size: 25px;
-    width: 100%;
-    padding-top: 5%;
-}
 
 /*
- * Styles for the Win Message
+ * Styles for the Win Message and Lose Message
  */
 
-.hide {
-    display: none;
+.win-message,
+.lose-message {
+    width: 80%;
+    text-align: center;
+    color: #241e1b;
+    padding: 50px;
+    border-radius: 5px;
+    border: 5px outset antiquewhite;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
 .win-message {
-    width: 80%;
     min-height: 450px;
-    text-align: center;
-    color: #301b28;
-    background: url('../img/8.png') bottom/cover;
-    padding: 50px;
-    border-radius: 5px;
-    border: 5px outset antiquewhite;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    background: #ddc5a2 url('../img/8.png') bottom/cover;
 }
-
-.win-message .no-of-hearts li {
-    list-style: none;
-    display: inline-block;
-}
-
-
-/*
- * Styles for the Lose Message
- */
 
 .lose-message {
-    width: 80%;
     min-height: 650px;
-    text-align: center;
-    color: #301b28;
-    background: url('../img/21.png') bottom/cover;
-    padding: 50px;
-    border-radius: 5px;
-    border: 5px outset antiquewhite;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    background: lightgrey url('../img/21.png') bottom/cover;
 }
 
+.win-message .no-of-hearts li,
 .lose-message .no-of-hearts li {
     list-style: none;
     display: inline-block;
+}
+
+.hide {
+    display: none;
 }
 
 
@@ -313,10 +249,10 @@ h1 {
 .help-menu {
     width: 80%;
     background: url("../img/xv_@2X.png");
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     padding: 1em;
     margin-bottom: 3em;
     border: 5px outset darkgray;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
 .help-menu .instructions,
@@ -349,6 +285,7 @@ h1 {
 
 .help-menu .quote {
     font-weight: 700;
+    font-style: italic;
 }
 
 
@@ -400,7 +337,4 @@ h1 {
 }
 
 */
-
-
-
 
