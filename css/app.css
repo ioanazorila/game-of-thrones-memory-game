@@ -175,9 +175,9 @@ h1 {
     display: inline-block;
 }
 
+.score-panel .stats,
 .score-panel .timer,
 .score-panel .moves-container,
-.score-panel .help-menu,
 .score-panel .help-button {
     width: 100%;
     padding: 5% 0 5% 0;
@@ -197,10 +197,12 @@ h1 {
 .score-panel .help-button {
     cursor: pointer;
     font-size: 25px;
+    margin-bottom: 2%;
 }
 
 .score-panel .separator {
     width: 90%;
+    height: 1px;
     border: 1px solid black;
 }
 
@@ -297,20 +299,152 @@ h1 {
 
 }
 
-@media screen and (min-width: 500px) and (max-width: 699px) {
+@media screen and (min-width: 500px) and (max-width: 949px) {
+    .score-panel,
+    .deck,
+    .win-message,
+    .lose-message,
+    .help-menu {
+        width: 100%;    /* Score panel at the top */
+    }
+    .score-panel {
+        align-items: center;
+        padding: 0;
+        margin: 0 0 1% 0;
+    }
+    .score-panel .stats,
+    .score-panel [class*='-controls'],
+    .score-panel .help-button {
+        width: 27%;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+    }
+    .score-panel .help-button {
+        width: 16%;
+    }
+    .score-panel .separator {
+        width: 1px;
+        height: 150px;
+    }
+}
 
+@media screen and (min-width: 500px) and (max-width: 699px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    .container {
+        width: 500px;
+    }
+    .score-panel {
+        font-size: 0.8em;
+    }
+    .left-images,
+    .right-quotes {
+        min-height: 300px;
+        padding: 3px;
+    }
+    .deck .card {
+        height: 68px;
+    }
+    .left-images .card {
+        width: 68px;
+    }
+    .right-quotes .card {
+        width: 165px;
+    }
+    .right-quotes .card.show {
+        font-size: 12px;
+    }
+    .help-menu .character-photo {
+        width: 68px;
+        height: 68px;
+    }
 }
 
 @media screen and (min-width: 700px) and (max-width: 949px) {
-
+    .container {
+        width: 750px;
+    }
+    .left-images,
+    .right-quotes {
+        min-height: 440px;
+        padding: 7px;
+    }
+    .deck .card {
+        height: 100px;
+    }
+    .left-images .card {
+        width: 100px;
+    }
+    .right-quotes .card {
+        width: 250px;
+    }
+    .right-quotes .card.show {
+        font-size: 16px;
+    }
+    .help-menu .character-photo {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 @media screen and (min-width: 950px) and (max-width: 1199px) {
-
+    h1 {
+        font-size: 1.5em;
+    }
+    .container {
+        width: 950px;
+    }
+    .score-panel {
+        font-size: 0.8em;
+    }
+    .left-images,
+    .right-quotes {
+        min-height: 480px;
+        padding: 5px;
+    }
+    .deck .card {
+        height: 105px;
+    }
+    .left-images .card {
+        width: 105px;
+    }
+    .right-quotes .card {
+        width: 255px;
+    }
+    .right-quotes .card.show {
+        font-size: 18px;
+    }
+    .help-menu .character-photo {
+        width: 105px;
+        height: 105px;
+    }
 }
 
-@media screen and (min-width: 1200px) and (max-width: 1500px) {
+@media screen and (min-width: 1200px) and (max-width: 1499px) {
     .container {
         width: 1200px;
+    }
+    .left-images,
+    .right-quotes {
+        min-height: 550px;
+        padding: 10px;
+    }
+    .deck .card {
+        height: 125px;
+    }
+    .left-images .card {
+        width: 125px;
+    }
+    .right-quotes .card {
+        width: 315px;
+    }
+    .right-quotes .card.show {
+        font-size: 21px;
+    }
+    .help-menu .character-photo {
+        width: 125px;
+        height: 125px;
     }
 }
