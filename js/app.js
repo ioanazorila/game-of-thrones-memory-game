@@ -341,19 +341,25 @@ function removeHeart() {
 
 ///////////////////////////// Pause or resume the game /////////////////////////////
 
+let paused = false;             // indicates whether the game is paused
+
 // Pause game (pause timer, disable click on cards) when the pause button is clicked
 document.querySelector('.fa-pause').addEventListener('click', function () {
     deltaTime += performance.now() - startTime;         // store the time spent playing before pausing the game
     clearTimeout(t);
     clickAllowed = false;
+    paused = true;
 });
 
 
 // Resume game (resume timer, enable click on cards) when the play button is clicked
 document.querySelector('.fa-play').addEventListener('click', function () {
-    timer();
-    startTime = performance.now();
-    clickAllowed = true;
+    if (paused) {       // resume allowed only when game is paused (bug fix for timer)
+        timer();
+        startTime = performance.now();
+        clickAllowed = true;
+        paused = false;
+    }
 });
 
 
